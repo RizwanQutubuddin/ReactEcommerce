@@ -23,11 +23,10 @@ const Header = () => {
                             <>
                                 <Nav className="me-auto">
                                     
-                                    <Nav.Link href=""><Link to="/home">Home</Link></Nav.Link>
+                                    <Nav.Link href=""><Link to="/">Home</Link></Nav.Link>
                                     <Nav.Link href=""><Link to="/about">About</Link></Nav.Link>
                                     <Nav.Link href=""><Link to="/contact">Contact</Link></Nav.Link>
                                     <Nav.Link href=""><Link to="/add">Add Product</Link></Nav.Link>
-                                    <Nav.Link href=""><Link to="/update">Update Product</Link></Nav.Link>
                                 </Nav>
                                     <Nav>
                                         <NavDropdown title={user.name} id="collasible-nav-dropdown">

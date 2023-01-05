@@ -16,13 +16,14 @@ function App() {
       <BrowserRouter>
 
           <Routes>
-            <Route path='/home' element={<Protected Cmp={Home}/>} />
+            
             <Route path='/about' element={<Protected Cmp={About}/>} />
             <Route path='/contact' element={<Protected Cmp={Contact}/>} />
             <Route path='/add' element={<Protected Cmp={Add} />} />
-            <Route path='/update' element={<Protected Cmp={Update} />} />
+            <Route path='/update/:id' element={<Protected Cmp={Update} />} />
             <Route path='/login' element={<Login/>} />
-            <Route path='/register' element={<Register/>} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/' element={<Protected Cmp={Home}/>} />
           </Routes>
         
         </BrowserRouter>
