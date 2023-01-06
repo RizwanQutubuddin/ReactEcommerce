@@ -13,7 +13,7 @@ const Register = () => {
     
     useEffect(() => {
         if (localStorage.getItem('user-info')) {
-            navigate('/home');
+            navigate('/');
         }
 
     },[]);
@@ -29,9 +29,10 @@ const Register = () => {
             body: JSON.stringify(item)
         });
         result = await result.json();
-        console.log(result);
         localStorage.setItem('user-info', JSON.stringify(result));
-        navigate('/home');
+        if (localStorage.setItem('user-info')) { 
+            navigate('/');
+        }
     }
     return (
         <>

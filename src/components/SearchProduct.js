@@ -1,33 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 
-const Home = () => {
-    let [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    async function fetchData() {
-        let result = await fetch('http://127.0.0.1:8000/api/all-products');
-        result = await result.json();
-        setProducts(result);
-    }
-
-    async function deleteOperation(id){ 
-        let result = await fetch('http://127.0.0.1:8000/api/delete-product/' + id, {
-            method:"delete"
+const SearchProduct = () => {
+    let [name, setName] = useState('');
+    useEffect(() => { 
+        
+    })
+    const navigate = useNavigate();
+    
+    async function addProduct() { 
+        
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("price", price);
+        formData.append("description", description);
+        formData.append("file", file);
+        let result = await fetch('http://127.0.0.1:8000/api/add-product', {
+            method: 'POST',
+            body: formData
         });
         result = await result.json();
-        if (result.result === 201) {
-            fetchData();
-            alert(result.message);
-        } else { 
-            alert(result.message);
-        }
-    };
+        console.log("result",result);
+        navigate('/');
 
+    }
     return (
         <>
             <Header />
@@ -63,4 +61,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default SearchProduct;

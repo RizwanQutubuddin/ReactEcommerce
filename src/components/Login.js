@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate ();
     useEffect(() => {
         if (localStorage.getItem('user-info')) {
-            navigate('/home');
+            navigate('/');
         }
 
     }, []);
@@ -26,9 +26,11 @@ const Login = () => {
             body: JSON.stringify(item)
         });
         result = await result.json();
-        console.log(result);
         localStorage.setItem('user-info', JSON.stringify(result));
-        navigate('/home');
+        if (localStorage.getItem('user-info')) { 
+            navigate('/');
+        }
+        
     }
 
     return (
